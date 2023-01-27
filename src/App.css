@@ -1,0 +1,26 @@
+form {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+}
+
+input {
+  display: flex;
+}
+
+textarea {
+  display: flex;
+}
+
+select {
+  display: flex;
+}
+
+button {
+  display: flex;
+  justify-content: center;
+  max-width: 200px;
+  padding: 5px;
+  border-color: rgb(255, 255, 255);
+  background-color: rgb(28, 197, 28);
+}
