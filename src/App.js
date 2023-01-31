@@ -5,6 +5,7 @@ import './App.css';
 
 class App extends React.Component {
   state = {
+    hasTrunfo: false,
     cardTrunfo: false,
     cardName: '',
     cardDescription: '',
@@ -13,8 +14,47 @@ class App extends React.Component {
     cardAttr3: '',
     cardImage: '',
     cardRare: '',
-    // cards: [],
+    cards: [],
     buttonDisabled: true,
+  };
+
+  hasTrunfo = () => {
+    const { cards } = this.state;
+    return cards.find((card) => card.cardTrunfo === true);
+  };
+
+  onSaveButtonClick = () => {
+    this.setState((state) => {
+      const {
+        cardName,
+        cardDescription,
+        cardAttr1,
+        cardAttr2,
+        cardAttr3,
+        cardImage,
+        cardRare,
+        cardTrunfo,
+        cards } = state;
+      const card = { cardName,
+        cardDescription,
+        cardAttr1,
+        cardAttr2,
+        cardAttr3,
+        cardImage,
+        cardRare,
+        cardTrunfo };
+      return {
+        cards: [...cards, card],
+        cardDescription: '',
+        cardName: '',
+        cardImage: '',
+        cardAttr1: 0,
+        cardAttr2: 0,
+        cardAttr3: 0,
+        cardRare: 'normal',
+        hasTrunfo: !!this.hasTrunfo,
+      };
+    });
   };
 
   onInputChange = ({ target }) => {
@@ -42,7 +82,6 @@ class App extends React.Component {
       + parseInt(cardAttr3, 10);
       const sumValid = (sumAttr > maxSum);
       const isAttrSumValid = !sumValid;
-      console.log(isAttrSumValid);
       return {
         buttonDisabled: !(isNameValid && isImageValid
         && isDescriptionValid && isAttr1Valid && isAttr2Valid
@@ -62,6 +101,8 @@ class App extends React.Component {
       cardImage,
       cardRare,
       buttonDisabled,
+      hasTrunfo,
+      cards,
     } = this.state;
 
     return (
@@ -71,6 +112,8 @@ class App extends React.Component {
           onInputChange={ this.onInputChange }
           { ...this.state }
           isSaveButtonDisabled={ buttonDisabled }
+          onSaveButtonClick={ this.onSaveButtonClick }
+          hasTrunfo={ hasTrunfo }
         />
         <Card
           cardTrunfo={ cardTrunfo }
@@ -82,6 +125,15 @@ class App extends React.Component {
           cardImage={ cardImage }
           cardRare={ cardRare }
         />
+        {this.onSaveButtonClick && (
+          <ul>
+            { cards.map((card) => (
+              <li key={ card.cardName }>
+                <Card { ...card } />
+              </li>
+            )) }
+          </ul>
+        )}
       </div>
     );
   }
