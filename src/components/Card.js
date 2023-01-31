@@ -32,7 +32,7 @@ class Card extends React.Component {
 }
 
 Card.propTypes = {
-  cardTrunfo: PropTypes.string.isRequired,
+  cardTrunfo: PropTypes.bool.isRequired,
   cardName: PropTypes.string.isRequired,
   cardImage: PropTypes.string.isRequired,
   cardDescription: PropTypes.string.isRequired,
