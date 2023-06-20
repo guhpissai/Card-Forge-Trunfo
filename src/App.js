@@ -1,7 +1,6 @@
 import React from 'react';
 import Form from './components/Form';
 import Card from './components/Card';
-import './App.css';
 
 class App extends React.Component {
   state = {
@@ -107,33 +106,37 @@ class App extends React.Component {
 
     return (
       <div>
-        <h1>Tryunfo</h1>
-        <Form
-          onInputChange={ this.onInputChange }
-          { ...this.state }
-          isSaveButtonDisabled={ buttonDisabled }
-          onSaveButtonClick={ this.onSaveButtonClick }
-          hasTrunfo={ hasTrunfo }
-        />
-        <Card
-          cardTrunfo={ cardTrunfo }
-          cardName={ cardName }
-          cardDescription={ cardDescription }
-          cardAttr1={ cardAttr1 }
-          cardAttr2={ cardAttr2 }
-          cardAttr3={ cardAttr3 }
-          cardImage={ cardImage }
-          cardRare={ cardRare }
-        />
-        {this.onSaveButtonClick && (
-          <ul>
-            { cards.map((card) => (
-              <li key={ card.cardName }>
-                <Card { ...card } />
-              </li>
-            )) }
-          </ul>
-        )}
+        <header>
+          <h1>Tryunfo</h1>
+        </header>
+        <main>
+          <Form
+            onInputChange={ this.onInputChange }
+            { ...this.state }
+            isSaveButtonDisabled={ buttonDisabled }
+            onSaveButtonClick={ this.onSaveButtonClick }
+            hasTrunfo={ hasTrunfo }
+          />
+          <Card
+            cardTrunfo={ cardTrunfo }
+            cardName={ cardName }
+            cardDescription={ cardDescription }
+            cardAttr1={ cardAttr1 }
+            cardAttr2={ cardAttr2 }
+            cardAttr3={ cardAttr3 }
+            cardImage={ cardImage }
+            cardRare={ cardRare }
+          />
+          {this.onSaveButtonClick && (
+            <ul>
+              { cards.map((card) => (
+                <li key={ card.cardName }>
+                  <Card { ...card } />
+                </li>
+              )) }
+            </ul>
+          )}
+        </main>
       </div>
     );
   }
