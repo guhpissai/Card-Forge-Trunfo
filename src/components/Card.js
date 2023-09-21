@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './card.module.css';
 
 class Card extends React.Component {
   render() {
@@ -14,31 +15,33 @@ class Card extends React.Component {
       cardTrunfo,
     } = this.props;
 
+    const raridade = cardRare.replace(' ', '-');
+
     return (
-      <div className="card">
-        <p data-testid="name-card">{cardName}</p>
-        <img src={ cardImage } alt={ cardImage } data-testid="image-card" />
-        <p data-testid="description-card">{cardDescription}</p>
-        <p data-testid="attr1-card">
-          Altura:
-          {' '}
-          {cardAttr1}
-        </p>
-        <p data-testid="attr2-card">
-          Inteligencia:
-          {' '}
-          {cardAttr2}
-        </p>
-        <p data-testid="attr3-card">
-          Força:
-          {' '}
-          {cardAttr3}
-        </p>
-        <p data-testid="rare-card">{cardRare}</p>
-        {
-          cardTrunfo && <p data-testid="trunfo-card">Super Trunfo</p>
-        }
-      </div>
+      <section className={ `${styles.cardContainer}` }>
+        <div className={ `${styles.card}  ${styles[raridade]} ` }>
+          <img src={ cardImage } alt={ cardImage } data-testid="image-card" />
+          <p data-testid="name-card">{cardName}</p>
+          <p data-testid="description-card">{cardDescription}</p>
+          <p data-testid="attr1-card">
+            Altura:
+            {' '}
+            {cardAttr1}
+          </p>
+          <p data-testid="attr2-card">
+            Inteligencia:
+            {' '}
+            {cardAttr2}
+          </p>
+          <p data-testid="attr3-card">
+            Força:
+            {' '}
+            {cardAttr3}
+          </p>
+          <p data-testid="rare-card">{cardRare}</p>
+          {cardTrunfo && <p data-testid="trunfo-card">Super Trunfo</p>}
+        </div>
+      </section>
     );
   }
 }

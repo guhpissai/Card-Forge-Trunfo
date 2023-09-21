@@ -1,0 +1,46 @@
+.cardContainer {
+  margin: auto;
+}
+
+.card {
+  height: 390px;
+  width: 260px;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  border-radius: 4px;
+}
+
+.raro {
+  border: 0.5rem;
+  border-style: solid;
+  border-image: linear-gradient(to right, darkblue, darkorchid) 1;
+  box-shadow: 0 0 8px 2px #c13cd0;
+}
+
+.normal {
+  border: 0.5rem solid #28ab4b;
+  border: ;
+  border-style: solid;
+}
+
+.muito-raro {
+  border: 0.5rem;
+  border-style: solid;
+  border-image: linear-gradient(to right, rgb(188, 81, 4), rgb(252, 139, 0)) 1;
+  box-shadow: 0 0 8px 2px #d63f03;
+}
+
+.card img {
+  align-self: center;
+  background-size: cover;
+  background: center center;
+  height: 200px;
+  width: 246px;
+}
+
+.card p {
+  font-weight: bold;
+  font-size: 1rem;
+  color: black;
+}
