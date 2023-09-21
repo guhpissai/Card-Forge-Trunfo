@@ -6,12 +6,12 @@
 
 body {
   margin: 0px;
-  padding-top: 4rem;
+  padding-top: 2rem;
   --font: "Roboto", sans-serif;
   background: url("../images/background.jpg") center center no-repeat;
-  overflow: hidden;
+  /* overflow: hidden; */
   background-size: cover;
-  min-height: 100vh;
+  min-height: 120vh;
 }
 
 h1,
@@ -39,12 +39,8 @@ li {
 }
 
 header {
-  position: fixed;
   width: 100%;
-  z-index: 100;
-  top: 0px;
   text-align: center;
-  height: 4rem;
 }
 
 header h1 {
@@ -66,5 +62,23 @@ header h1 {
 .container main {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  /* justify-items: center; */
+}
+
+.deck-container {
+  margin-top: 4rem;
+  min-height: 18rem;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 1rem;
+}
+
+.deck-length {
+  padding: 1rem;
+}
+
+.deck {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 1rem;
+  padding: 0 1rem;
+  padding-bottom: 1rem;
 }

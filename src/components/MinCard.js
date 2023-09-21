@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './card.module.css';
+import styles from './MinCard.module.css';
 
-class Card extends React.Component {
+class MinCard extends React.Component {
   render() {
     const {
       cardName,
@@ -48,7 +48,7 @@ class Card extends React.Component {
   }
 }
 
-Card.propTypes = {
+MinCard.propTypes = {
   cardTrunfo: PropTypes.bool.isRequired,
   cardName: PropTypes.string.isRequired,
   cardImage: PropTypes.string.isRequired,
@@ -59,4 +59,4 @@ Card.propTypes = {
   cardRare: PropTypes.string.isRequired,
 };
 
-export default Card;
+export default MinCard;

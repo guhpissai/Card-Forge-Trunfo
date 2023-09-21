@@ -2,6 +2,7 @@ import React from 'react';
 import Form from './components/Form';
 import Card from './components/Card';
 import './App.css';
+import MinCard from './components/MinCard';
 
 class App extends React.Component {
   state = {
@@ -149,13 +150,19 @@ class App extends React.Component {
             />
           </main>
           {this.onSaveButtonClick && (
-            <ul className="saved-card">
-              {cards.map((card) => (
-                <li key={ card.cardName }>
-                  <Card { ...card } />
-                </li>
-              ))}
-            </ul>
+            <div className="deck-container">
+              <p className="deck-length">
+                {cards.length}
+                /8
+              </p>
+              <ul className="deck">
+                {cards.map((card) => (
+                  <li key={ card.cardName } className="card">
+                    <MinCard { ...card } />
+                  </li>
+                ))}
+              </ul>
+            </div>
           )}
         </div>
       </div>

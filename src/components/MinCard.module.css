@@ -3,8 +3,8 @@
 }
 
 .card {
-  height: 390px;
-  width: 260px;
+  height: 280px;
+  width: 180px;
   background: white;
   display: grid;
   justify-content: center;
@@ -16,7 +16,7 @@
   border: 0.5rem;
   border-style: solid;
   border-image: linear-gradient(to right, darkblue, darkorchid) 1;
-  box-shadow: 0 0 4px 2px #c13cd0;
+  box-shadow: 0 0 4px 1px #c13cd0;
 }
 
 .normal {
@@ -28,18 +28,19 @@
   border: 0.5rem;
   border-style: solid;
   border-image: linear-gradient(to right, rgb(188, 81, 4), rgb(252, 139, 0)) 1;
-  box-shadow: 0 0 4px 2px #d63f03, 0 0 0 1px #000000;
+  box-shadow: 0 0 4px 1px #d63f03, 0 0 0 1px #000000;
 }
 
 .card img {
   background-size: cover;
   background: center center;
-  height: 200px;
-  width: 246px;
+  height: 140px;
+  width: 166px;
 }
 
 .card p {
   font-weight: bold;
   color: black;
-  padding-left: 4px;
+  font-size: 0.85rem;
+  padding-left: 2px;
 }
