@@ -1,0 +1,21 @@
+.input {
+  display: flex;
+  flex-direction: column;
+}
+
+.input input {
+  border: 1px solid #eee;
+  max-width: 20rem;
+  margin-top: 4px;
+  padding: 0.5rem 0;
+  background: #eee;
+  border-radius: 4px;
+}
+
+.input input:hover,
+.input input:focus {
+  outline: none;
+  border-color: rgb(43, 29, 202);
+  background: white;
+  box-shadow: 0 0 0 3px rgb(144, 193, 238);
+}

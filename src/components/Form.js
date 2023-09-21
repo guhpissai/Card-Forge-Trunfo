@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Input from './Input';
+import styles from './form.module.css';
 
 class Form extends React.Component {
   render() {
@@ -19,19 +21,15 @@ class Form extends React.Component {
     } = this.props;
 
     return (
-      <form>
-        <label htmlFor="name">
-          Nome
-          <input
-            className="down-border"
-            onChange={ onInputChange }
-            value={ cardName }
-            type="text"
-            data-testid="name-input"
-            id="cardName"
-            name="cardName"
-          />
-        </label>
+      <form className={ styles.form }>
+        <Input
+          onChange={ onInputChange }
+          value={ cardName }
+          type="text"
+          data-testid="name-input"
+          id="Nome"
+          name="cardName"
+        />
         <label htmlFor="description">
           Descrição
           <textarea
@@ -42,50 +40,38 @@ class Form extends React.Component {
             name="cardDescription"
           />
         </label>
-        <label htmlFor="height">
-          Altura
-          <input
-            type="number"
-            onChange={ onInputChange }
-            value={ cardAttr1 }
-            data-testid="attr1-input"
-            id="height"
-            name="cardAttr1"
-          />
-        </label>
-        <label htmlFor="intelligence">
-          Inteligência
-          <input
-            type="number"
-            onChange={ onInputChange }
-            value={ cardAttr2 }
-            data-testid="attr2-input"
-            id="intelligence"
-            name="cardAttr2"
-          />
-        </label>
-        <label htmlFor="strength">
-          Força
-          <input
-            type="number"
-            onChange={ onInputChange }
-            value={ cardAttr3 }
-            data-testid="attr3-input"
-            id="strength"
-            name="cardAttr3"
-          />
-        </label>
-        <label htmlFor="image">
-          Imagem
-          <input
-            type="text"
-            onChange={ onInputChange }
-            value={ cardImage }
-            data-testid="image-input"
-            id="image"
-            name="cardImage"
-          />
-        </label>
+        <Input
+          type="number"
+          onChange={ onInputChange }
+          value={ cardAttr1 }
+          data-testid="attr1-input"
+          id="Altura"
+          name="cardAttr1"
+        />
+        <Input
+          type="number"
+          onChange={ onInputChange }
+          value={ cardAttr2 }
+          data-testid="attr2-input"
+          id="Inteligencia"
+          name="cardAttr2"
+        />
+        <Input
+          type="number"
+          onChange={ onInputChange }
+          value={ cardAttr3 }
+          data-testid="attr3-input"
+          id="strength"
+          name="cardAttr3"
+        />
+        <Input
+          type="text"
+          onChange={ onInputChange }
+          value={ cardImage }
+          data-testid="image-input"
+          id="image"
+          name="cardImage"
+        />
         <label htmlFor="rarity">
           Raridade
           <select
@@ -100,21 +86,21 @@ class Form extends React.Component {
             <option>muito raro</option>
           </select>
         </label>
-        {
-          hasTrunfo === true ? (<p>Você já tem um Super Trunfo em seu baralho</p>)
-            : (
-              <label htmlFor="trunfo">
-                Super Trunfo
-                <input
-                  onChange={ onInputChange }
-                  checked={ cardTrunfo }
-                  type="checkbox"
-                  data-testid="trunfo-input"
-                  id="trunfo"
-                  name="cardTrunfo"
-                />
-              </label>)
-        }
+        {hasTrunfo === true ? (
+          <p>Você já tem um Super Trunfo em seu baralho</p>
+        ) : (
+          <label htmlFor="trunfo">
+            Super Trunfo
+            <input
+              onChange={ onInputChange }
+              checked={ cardTrunfo }
+              type="checkbox"
+              data-testid="trunfo-input"
+              id="trunfo"
+              name="cardTrunfo"
+            />
+          </label>
+        )}
         <button
           type="button"
           data-testid="save-button"
