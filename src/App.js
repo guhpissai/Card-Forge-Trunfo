@@ -126,7 +126,7 @@ class App extends React.Component {
     return (
       <div>
         <header>
-          <h1>Tryunfo</h1>
+          <h1>Card Forge</h1>
         </header>
         <div className="container">
           <main>

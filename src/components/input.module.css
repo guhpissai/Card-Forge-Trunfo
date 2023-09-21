@@ -1,6 +1,7 @@
 .input {
   display: flex;
   flex-direction: column;
+  margin-top: 1rem;
 }
 
 .input input {
@@ -10,12 +11,14 @@
   padding: 0.5rem 0;
   background: #eee;
   border-radius: 4px;
+  transition: 0.3s;
 }
 
 .input input:hover,
 .input input:focus {
   outline: none;
-  border-color: rgb(43, 29, 202);
+  border-color: rgb(255, 232, 55);
   background: white;
-  box-shadow: 0 0 0 3px rgb(144, 193, 238);
+  box-shadow: 0 0 0 3px rgb(202, 69, 29);
+  background: white;
 }

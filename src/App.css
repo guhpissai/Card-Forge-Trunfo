@@ -8,6 +8,10 @@ body {
   margin: 0px;
   padding-top: 4rem;
   --font: "Roboto", sans-serif;
+  background: url("../images/background.jpg") center center no-repeat;
+  overflow: hidden;
+  background-size: cover;
+  min-height: 100vh;
 }
 
 h1,
@@ -17,11 +21,14 @@ h4,
 p {
   margin: 0px;
   font-family: var(--font);
+  color: #eee;
 }
 
 label {
   font-family: var(--font);
+  font-weight: bold;
   font-size: 1.25rem;
+  color: #ffffff;
 }
 
 ul,
@@ -35,10 +42,18 @@ header {
   position: fixed;
   width: 100%;
   z-index: 100;
-  background: rgb(232, 184, 141);
   top: 0px;
   text-align: center;
   height: 4rem;
+}
+
+header h1 {
+  background: -webkit-linear-gradient(#ef5f3b, #ffdf27);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 4rem;
+  font-weight: bold;
 }
 
 .container {
@@ -51,5 +66,5 @@ header {
 .container main {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  justify-items: center;
+  /* justify-items: center; */
 }
