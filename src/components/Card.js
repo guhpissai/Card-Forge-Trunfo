@@ -19,29 +19,45 @@ class Card extends React.Component {
 
     return (
       <section className={ `${styles.cardContainer}` }>
-        <div className={ `${styles.card}  ${styles[raridade]} ` }>
-          <img src={ cardImage } alt={ cardImage } data-testid="image-card" />
-          <p data-testid="description-card">{cardDescription}</p>
-          <p data-testid="attr1-card">
-            Altura:
-            {' '}
-            {cardAttr1}
-          </p>
-          <p data-testid="attr2-card">
-            Inteligencia:
-            {' '}
-            {cardAttr2}
-          </p>
-          <p data-testid="attr3-card">
-            Força:
-            {' '}
-            {cardAttr3}
-          </p>
-          <p data-testid="rare-card">{cardRare}</p>
-          {cardTrunfo && <p data-testid="trunfo-card">Super Trunfo</p>}
-          <p data-testid="name-card" className={ styles.name }>
-            {cardName}
-          </p>
+        <div
+          className={ `${styles.card}  ${
+            cardRare ? styles[raridade] : styles.normal
+          } ` }
+        >
+          {cardImage ? (
+            <img src={ cardImage } alt={ cardImage } data-testid="image-card" />
+          ) : (
+            <div className={ styles.emptyImage } />
+          )}
+          <div className={ styles.cardDown }>
+            <div className={ styles.cardHeader }>
+              <p data-testid="name-card" className={ styles.name }>
+                {cardName}
+              </p>
+              <p data-testid="description-card" className={ styles.description }>
+                {cardDescription}
+              </p>
+            </div>
+            <div className={ styles.attr }>
+              <p data-testid="attr1-card">
+                Altura:
+                {' '}
+                {cardAttr1}
+              </p>
+              <p data-testid="attr2-card">
+                Inteligencia:
+                {' '}
+                {cardAttr2}
+              </p>
+              <p data-testid="attr3-card">
+                Força:
+                {' '}
+                {cardAttr3}
+              </p>
+              <p data-testid="rare-card">{cardRare}</p>
+              {cardTrunfo && <p data-testid="trunfo-card">Super Trunfo</p>}
+            </div>
+          </div>
         </div>
       </section>
     );
@@ -53,9 +69,9 @@ Card.propTypes = {
   cardName: PropTypes.string.isRequired,
   cardImage: PropTypes.string.isRequired,
   cardDescription: PropTypes.string.isRequired,
-  cardAttr1: PropTypes.string.isRequired,
-  cardAttr2: PropTypes.string.isRequired,
-  cardAttr3: PropTypes.string.isRequired,
+  cardAttr1: PropTypes.number.isRequired,
+  cardAttr2: PropTypes.number.isRequired,
+  cardAttr3: PropTypes.number.isRequired,
   cardRare: PropTypes.string.isRequired,
 };
 

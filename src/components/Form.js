@@ -31,16 +31,18 @@ class Form extends React.Component {
             id="Nome"
             name="cardName"
           />
-          <label htmlFor="description">
-            Descrição
-            <textarea
-              className="down-border"
-              onChange={ onInputChange }
-              value={ cardDescription }
-              data-testid="description-input"
-              name="cardDescription"
-            />
-          </label>
+          <div className={ styles.description }>
+            <label htmlFor="description">
+              Descrição
+              <textarea
+                className="down-border"
+                onChange={ onInputChange }
+                value={ cardDescription }
+                data-testid="description-input"
+                name="cardDescription"
+              />
+            </label>
+          </div>
           <Input
             type="number"
             onChange={ onInputChange }
@@ -119,9 +121,9 @@ class Form extends React.Component {
 Form.propTypes = {
   cardName: PropTypes.string.isRequired,
   cardDescription: PropTypes.string.isRequired,
-  cardAttr1: PropTypes.string.isRequired,
-  cardAttr2: PropTypes.string.isRequired,
-  cardAttr3: PropTypes.string.isRequired,
+  cardAttr1: PropTypes.number.isRequired,
+  cardAttr2: PropTypes.number.isRequired,
+  cardAttr3: PropTypes.number.isRequired,
   cardImage: PropTypes.string.isRequired,
   cardRare: PropTypes.string.isRequired,
   cardTrunfo: PropTypes.bool.isRequired,

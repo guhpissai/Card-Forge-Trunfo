@@ -5,4 +5,31 @@
 .form {
   border-radius: 4px;
   padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+textarea {
+  display: flex;
+  width: 20rem;
+  height: 4rem;
+  margin-top: 2px;
+  word-break: break-all;
+  resize: none;
+  background: #eee;
+  border-radius: 4px;
+  transition: 0.3s;
+}
+
+.description {
+  margin-top: 10px;
+}
+
+textarea:hover,
+textarea:focus {
+  outline: none;
+  border-color: rgb(255, 232, 55);
+  background: white;
+  box-shadow: 0 0 0 3px rgb(202, 69, 29);
+  background: white;
 }

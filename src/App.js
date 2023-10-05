@@ -55,20 +55,11 @@ class App extends React.Component {
         cardAttr1: 0,
         cardAttr2: 0,
         cardAttr3: 0,
-        cardRare: 'normal',
-        hasTrunfo: !!this.hasTrunfo,
+        cardRare: '',
+        hasTrunfo: this.hasTrunfo,
+        buttonDisabled: true,
       };
     });
-  };
-
-  onInputChange = ({ target }) => {
-    const { name, type } = target;
-    this.setState(
-      {
-        [name]: type === 'checkbox' ? target.checked : target.value,
-      },
-      this.isSaveButtonDisabled,
-    );
   };
 
   isSaveButtonDisabled = () => {
@@ -109,6 +100,16 @@ class App extends React.Component {
     });
   };
 
+  onInputChange = ({ target }) => {
+    const { name, type } = target;
+    this.setState(
+      {
+        [name]: type === 'checkbox' ? target.checked : target.value,
+      },
+      this.isSaveButtonDisabled,
+    );
+  };
+
   render() {
     const {
       cardTrunfo,
@@ -127,7 +128,7 @@ class App extends React.Component {
     return (
       <div>
         <header>
-          <h1>Card Forge</h1>
+          <h1>CardForge</h1>
         </header>
         <div className="container">
           <main>

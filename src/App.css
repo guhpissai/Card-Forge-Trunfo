@@ -48,15 +48,28 @@ header h1 {
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-size: 4rem;
+  font-size: 2.85rem;
   font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+}
+
+header h1::before {
+  content: "";
+  margin-right: 1rem;
+  width: 32px;
+  height: 49px;
+  display: inline-block;
+  background: url("../images/Group\ 2.svg");
 }
 
 .container {
   max-width: 80rem;
   margin: 0 auto;
   padding: 0 1rem;
-  margin-top: 4rem;
+  margin-top: 2rem;
 }
 
 .container main {
@@ -65,7 +78,7 @@ header h1 {
 }
 
 .deck-container {
-  margin-top: 4rem;
+  margin: 4rem auto;
   min-height: 18rem;
   background: rgba(0, 0, 0, 0.5);
   border-radius: 1rem;
@@ -76,9 +89,27 @@ header h1 {
 }
 
 .deck {
-  display: grid;
-  grid-template-columns: repeat(8, 1fr);
-  gap: 1rem;
+  display: flex;
+  flex-wrap: wrap;
   padding: 0 1rem;
   padding-bottom: 1rem;
+  gap: 10px;
+}
+
+button {
+  padding: 10px 10px;
+  width: 10rem;
+  margin-top: 1rem;
+  align-self: center;
+  color: white;
+  background: #ef5f3b;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+button:disabled {
+  background: #ef5f3b7b;
+  cursor: not-allowed;
 }
