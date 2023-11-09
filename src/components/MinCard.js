@@ -13,6 +13,8 @@ class MinCard extends React.Component {
       cardImage,
       cardRare,
       cardTrunfo,
+      handleRemoveCard,
+      id,
     } = this.props;
 
     const raridade = cardRare.replace(' ', '-');
@@ -55,6 +57,13 @@ class MinCard extends React.Component {
             </div>
           </div>
         </div>
+        <button
+          data-testid="delete-button"
+          onClick={ () => handleRemoveCard(id) }
+        >
+          Remove
+
+        </button>
       </section>
     );
   }
@@ -69,6 +78,8 @@ MinCard.propTypes = {
   cardAttr2: PropTypes.string.isRequired,
   cardAttr3: PropTypes.string.isRequired,
   cardRare: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
+  handleRemoveCard: PropTypes.func.isRequired,
 };
 
 export default MinCard;

@@ -15,50 +15,67 @@ class App extends React.Component {
     cardAttr3: '',
     cardImage: '',
     cardRare: '',
+    nextCardId: 1,
     cards: [],
     buttonDisabled: true,
   };
 
   hasTrunfo = () => {
     const { cards } = this.state;
-    return cards.find((card) => card.cardTrunfo === true);
+    const hasTrunfo = cards.some((card) => card.cardTrunfo === true);
+    this.setState({ hasTrunfo });
   };
 
   onSaveButtonClick = () => {
-    this.setState((state) => {
-      const {
-        cardName,
-        cardDescription,
-        cardAttr1,
-        cardAttr2,
-        cardAttr3,
-        cardImage,
-        cardRare,
-        cardTrunfo,
-        cards,
-      } = state;
-      const card = {
-        cardName,
-        cardDescription,
-        cardAttr1,
-        cardAttr2,
-        cardAttr3,
-        cardImage,
-        cardRare,
-        cardTrunfo,
-      };
+    const {
+      cardName,
+      cardDescription,
+      cardAttr1,
+      cardAttr2,
+      cardAttr3,
+      cardImage,
+      cardRare,
+      cardTrunfo,
+      nextCardId,
+    } = this.state;
+
+    const newCard = {
+      id: nextCardId,
+      cardName,
+      cardDescription,
+      cardAttr1,
+      cardAttr2,
+      cardAttr3,
+      cardImage,
+      cardRare,
+      cardTrunfo,
+    };
+
+    this.setState((prevState) => ({
+      cards: [...prevState.cards, newCard],
+      nextCardId: prevState.nextCardId + 1,
+      cardDescription: '',
+      cardName: '',
+      cardImage: '',
+      cardAttr1: 0,
+      cardAttr2: 0,
+      cardAttr3: 0,
+      cardRare: '',
+      buttonDisabled: true,
+    }), () => {
+      this.hasTrunfo();
+    });
+  };
+
+  handleRemoveCard = (cardId) => {
+    this.setState((prevState) => {
+      const updatedCards = prevState.cards.filter((card) => card.id !== cardId);
       return {
-        cards: [...cards, card],
-        cardDescription: '',
-        cardName: '',
-        cardImage: '',
-        cardAttr1: 0,
-        cardAttr2: 0,
-        cardAttr3: 0,
-        cardRare: '',
-        hasTrunfo: this.hasTrunfo,
-        buttonDisabled: true,
+        ...prevState,
+        cards: updatedCards,
       };
+    }, () => {
+      this.hasTrunfo();
     });
   };
 
@@ -158,8 +175,11 @@ class App extends React.Component {
               </p>
               <ul className="deck">
                 {cards.map((card) => (
-                  <li key={ card.cardName } className="card">
-                    <MinCard { ...card } />
+                  <li key={ card.id } className="card">
+                    <MinCard
+                      { ...card }
+                      handleRemoveCard={ this.handleRemoveCard }
+                    />
                   </li>
                 ))}
               </ul>

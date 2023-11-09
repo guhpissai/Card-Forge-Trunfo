@@ -8,10 +8,10 @@ body {
   margin: 0px;
   padding-top: 2rem;
   --font: "Roboto", sans-serif;
-  background: url("../images/background.jpg") center center no-repeat;
+  background: url("../images/background.jpg") center no-repeat;
   /* overflow: hidden; */
   background-size: cover;
-  min-height: 120vh;
+  min-height: 140vh;
 }
 
 h1,
