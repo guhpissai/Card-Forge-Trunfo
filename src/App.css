@@ -84,6 +84,11 @@ header h1::before {
   border-radius: 1rem;
 }
 
+.filter-container {
+  display: flex;
+  justify-content: center;
+}
+
 .deck-length {
   padding: 1rem;
 }
@@ -112,4 +117,28 @@ button {
 button:disabled {
   background: #ef5f3b7b;
   cursor: not-allowed;
+}
+
+select {
+  margin: 0;
+}
+
+select {
+  border: 1px solid #eee;
+  margin-top: 1rem;
+  margin-left: 1rem;
+  max-width: 20rem;
+  padding: 0.45rem 2rem 0.45rem 0.5rem;
+  background: #eee;
+  border-radius: 4px;
+  transition: 0.3s;
+}
+
+select:hover,
+select:focus {
+  outline: none;
+  border-color: rgb(255, 232, 55);
+  background: white;
+  box-shadow: 0 0 0 3px rgb(202, 69, 29);
+  background: white;
 }

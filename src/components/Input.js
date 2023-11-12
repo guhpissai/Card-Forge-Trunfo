@@ -7,8 +7,12 @@ export default class Input extends Component {
 
     return (
       <div className={ styles.input }>
-        <label htmlFor={ props.id }>{props.id}</label>
-        <input { ...props } label={ props.cardName } />
+        <label htmlFor={ props.id }>{!props.label && props.id}</label>
+        <input
+          { ...props }
+          label={ props.cardName }
+          placeholder={ props.label && props.id }
+        />
       </div>
     );
   }

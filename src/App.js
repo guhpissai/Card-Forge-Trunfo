@@ -3,6 +3,7 @@ import Form from './components/Form';
 import Card from './components/Card';
 import './App.css';
 import MinCard from './components/MinCard';
+import Input from './components/Input';
 
 class App extends React.Component {
   state = {
@@ -18,6 +19,9 @@ class App extends React.Component {
     nextCardId: 1,
     cards: [],
     buttonDisabled: true,
+    cardRareFilter: 'Raridade',
+    cardFilterName: '',
+    cardTrunfoFilter: false,
   };
 
   hasTrunfo = () => {
@@ -51,32 +55,40 @@ class App extends React.Component {
       cardTrunfo,
     };
 
-    this.setState((prevState) => ({
-      cards: [...prevState.cards, newCard],
-      nextCardId: prevState.nextCardId + 1,
-      cardDescription: '',
-      cardName: '',
-      cardImage: '',
-      cardAttr1: 0,
-      cardAttr2: 0,
-      cardAttr3: 0,
-      cardRare: '',
-      buttonDisabled: true,
-    }), () => {
-      this.hasTrunfo();
-    });
+    this.setState(
+      (prevState) => ({
+        cards: [...prevState.cards, newCard],
+        nextCardId: prevState.nextCardId + 1,
+        cardDescription: '',
+        cardName: '',
+        cardImage: '',
+        cardAttr1: 0,
+        cardAttr2: 0,
+        cardAttr3: 0,
+        cardRare: '',
+        buttonDisabled: true,
+      }),
+      () => {
+        this.hasTrunfo();
+      },
+    );
   };
 
   handleRemoveCard = (cardId) => {
-    this.setState((prevState) => {
-      const updatedCards = prevState.cards.filter((card) => card.id !== cardId);
-      return {
-        ...prevState,
-        cards: updatedCards,
-      };
-    }, () => {
-      this.hasTrunfo();
-    });
+    this.setState(
+      (prevState) => {
+        const updatedCards = prevState.cards.filter(
+          (card) => card.id !== cardId,
+        );
+        return {
+          ...prevState,
+          cards: updatedCards,
+        };
+      },
+      () => {
+        this.hasTrunfo();
+      },
+    );
   };
 
   isSaveButtonDisabled = () => {
@@ -169,10 +181,49 @@ class App extends React.Component {
           </main>
           {this.onSaveButtonClick && (
             <div className="deck-container">
-              <p className="deck-length">
-                {cards.length}
-                /8
-              </p>
+              <div className="filter-container">
+                <Input
+                  type="text"
+                  onChange={ this.onInputChange }
+                  value={ this.cardFilterName }
+                  data-testid="name-filter"
+                  id="Nome da Carta"
+                  name="cardFilterName"
+                  label="false"
+                />
+                <label htmlFor="cardRareFilter">
+                  <select
+                    onChange={ this.onInputChange }
+                    value={ this.cardRareFilter }
+                    data-testid="rare-input"
+                    id="rarityFilter"
+                    name="cardRareFilter"
+                  >
+                    <option value="" disabled selected hidden>
+                      Raridade
+                    </option>
+                    <option>normal</option>
+                    <option>raro</option>
+                    <option>muito raro</option>
+                  </select>
+                </label>
+                <Input />
+                <label htmlFor="trunfo">
+                  Super Trunfo
+                  <input
+                    onChange={ this.onInputChange }
+                    checked={ this.cardTrunfoFilter }
+                    type="checkbox"
+                    data-testid="trunfo-input"
+                    id="trunfoFilter"
+                    name="cardTrunfoFilter"
+                  />
+                </label>
+                <p className="deck-length">
+                  {cards.length}
+                  /8
+                </p>
+              </div>
               <ul className="deck">
                 {cards.map((card) => (
                   <li key={ card.id } className="card">
