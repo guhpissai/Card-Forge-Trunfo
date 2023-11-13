@@ -201,7 +201,7 @@ class App extends React.Component {
                   <select
                     onChange={ this.onInputChange }
                     value={ this.cardRareFilter }
-                    data-testid="rare-input"
+                    data-testid="trunfo-filter"
                     id="cardRareFilter"
                     name="cardRareFilter"
                   >
@@ -213,7 +213,7 @@ class App extends React.Component {
                     <option>muito raro</option>
                   </select>
                 </label>
-                <label htmlFor="trunfo">
+                {/* <label htmlFor="trunfo">
                   Super Trunfo
                   <input
                     onChange={ this.onInputChange }
@@ -223,7 +223,7 @@ class App extends React.Component {
                     id="trunfoFilter"
                     name="cardTrunfoFilter"
                   />
-                </label>
+                </label> */}
                 <p className="deck-length">
                   {cards.length}
                   /8
