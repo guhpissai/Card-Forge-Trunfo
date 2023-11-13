@@ -18,8 +18,9 @@ class App extends React.Component {
     cardRare: '',
     nextCardId: 1,
     cards: [],
+    filteredCards: [],
     buttonDisabled: true,
-    cardRareFilter: 'Raridade',
+    cardRareFilter: '',
     cardFilterName: '',
     cardTrunfoFilter: false,
   };
@@ -68,26 +69,16 @@ class App extends React.Component {
         cardRare: '',
         buttonDisabled: true,
       }),
-      () => {
-        this.hasTrunfo();
-      },
+      this.hasTrunfo,
     );
   };
 
   handleRemoveCard = (cardId) => {
     this.setState(
-      (prevState) => {
-        const updatedCards = prevState.cards.filter(
-          (card) => card.id !== cardId,
-        );
-        return {
-          ...prevState,
-          cards: updatedCards,
-        };
-      },
-      () => {
-        this.hasTrunfo();
-      },
+      (prevState) => ({
+        cards: prevState.cards.filter((card) => card.id !== cardId),
+      }),
+      this.hasTrunfo,
     );
   };
 
@@ -107,37 +98,49 @@ class App extends React.Component {
       const maxValue = 90;
       const minValue = 0;
       const maxSum = 210;
-      const isAttr1Valid = !(cardAttr1 > maxValue || cardAttr1 < minValue);
-      const isAttr2Valid = !(cardAttr2 > maxValue || cardAttr2 < minValue);
-      const isAttr3Valid = !(cardAttr3 > maxValue || cardAttr3 < minValue);
+      const isAttrValid = (attr) => !(attr > maxValue || attr < minValue);
       const sumAttr = parseInt(cardAttr1, 10)
         + parseInt(cardAttr2, 10)
         + parseInt(cardAttr3, 10);
-      const sumValid = sumAttr > maxSum;
-      const isAttrSumValid = !sumValid;
+      const isAttrSumValid = sumAttr <= maxSum;
+
       return {
         buttonDisabled: !(
           isNameValid
           && isImageValid
           && isDescriptionValid
-          && isAttr1Valid
-          && isAttr2Valid
-          && isAttr3Valid
+          && isAttrValid(cardAttr1)
+          && isAttrValid(cardAttr2)
+          && isAttrValid(cardAttr3)
           && isAttrSumValid
         ),
       };
     });
   };
 
-  onInputChange = ({ target }) => {
-    const { name, type } = target;
-    this.setState(
-      {
-        [name]: type === 'checkbox' ? target.checked : target.value,
-      },
-      this.isSaveButtonDisabled,
+  filterCards = () => {
+    const { cards, cardFilterName, cardRareFilter } = this.state;
+    const filteredCards = cards.filter(
+      (card) => card.cardName.toLowerCase().includes(cardFilterName.toLowerCase())
+        && (!cardRareFilter || card.cardRare === cardRareFilter),
     );
+    this.setState({ filteredCards });
   };
+
+  onInputChange = ({ target }) => {
+    const { name, type, checked, value } = target;
+
+    this.setState({ [name]: type === 'checkbox' ? checked : value }, () => {
+      this.isSaveButtonDisabled();
+      this.filterCards();
+    });
+  };
+
+  renderCard = (card) => (
+    <li key={ card.id } className="card">
+      <MinCard { ...card } handleRemoveCard={ this.handleRemoveCard } />
+    </li>
+  );
 
   render() {
     const {
@@ -152,6 +155,9 @@ class App extends React.Component {
       buttonDisabled,
       hasTrunfo,
       cards,
+      filteredCards,
+      cardFilterName,
+      cardRareFilter,
     } = this.state;
 
     return (
@@ -196,10 +202,10 @@ class App extends React.Component {
                     onChange={ this.onInputChange }
                     value={ this.cardRareFilter }
                     data-testid="rare-input"
-                    id="rarityFilter"
+                    id="cardRareFilter"
                     name="cardRareFilter"
                   >
-                    <option value="" disabled selected hidden>
+                    <option value="" disabled hidden>
                       Raridade
                     </option>
                     <option>normal</option>
@@ -207,7 +213,6 @@ class App extends React.Component {
                     <option>muito raro</option>
                   </select>
                 </label>
-                <Input />
                 <label htmlFor="trunfo">
                   Super Trunfo
                   <input
@@ -225,14 +230,9 @@ class App extends React.Component {
                 </p>
               </div>
               <ul className="deck">
-                {cards.map((card) => (
-                  <li key={ card.id } className="card">
-                    <MinCard
-                      { ...card }
-                      handleRemoveCard={ this.handleRemoveCard }
-                    />
-                  </li>
-                ))}
+                {cardFilterName || cardRareFilter
+                  ? filteredCards.map((card) => this.renderCard(card))
+                  : cards.map((card) => this.renderCard(card))}
               </ul>
             </div>
           )}
