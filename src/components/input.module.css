@@ -1,26 +1,23 @@
-.input,
-select {
+.input, select {
   display: flex;
   flex-direction: column;
   width: 100%;
 }
 
 .input input {
-  border: 1px solid #eee;
-  width: 100%;
-  padding: 0.5rem;
   background: #eee;
+  border: 1px solid #eee;
   border-radius: 4px;
+  padding: 0.5rem;
   transition: 0.3s;
+  width: 100%;
 }
 
-.input input:hover,
-.input input:focus {
-  outline: none;
+.input input:hover, .input input:focus {
+  background: white;
   border-color: rgb(255, 232, 55);
-  background: white;
   box-shadow: 0 0 0 3px rgb(202, 69, 29);
-  background: white;
+  outline: none;
 }
 
 .atr {
@@ -28,7 +25,7 @@ select {
 }
 
 .input label {
-  font-size: 1rem;
-  align-self: flex-start;
   align-items: flex-start;
+  align-self: flex-start;
+  font-size: 1rem;
 }

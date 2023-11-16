@@ -1,25 +1,25 @@
 .cardContainer {
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
+  justify-content: center;
   max-width: 180px;
 }
 
 .card {
-  height: 280px;
-  width: 180px;
   background: white;
+  border-radius: 4px;
   display: grid;
   grid-template-rows: 1fr 1fr;
+  height: 280px;
   justify-content: center;
-  border-radius: 4px;
   position: relative;
+  width: 180px;
 }
 
 .raro {
   border: 0.5rem;
-  border-style: solid;
   border-image: linear-gradient(to right, darkblue, darkorchid) 1;
+  border-style: solid;
   box-shadow: 0 0 4px 2px #c13cd0;
 }
 
@@ -30,14 +30,14 @@
 
 .muito-raro {
   border: 0.5rem;
-  border-style: solid;
   border-image: linear-gradient(to right, rgb(188, 81, 4), rgb(252, 139, 0)) 1;
-  box-shadow: 0 0 4px 2px #d63f03, 0 0 0 1px #000000;
+  border-style: solid;
+  box-shadow: 0 0 4px 2px #d63f03 , 0 0 0 1px black;
 }
 
 .card img {
-  background-size: cover;
   background: center center;
+  background-size: cover;
   height: 134px;
   width: 166px;
 }
@@ -47,17 +47,16 @@
 }
 
 .card p {
-  font-weight: bold;
   color: white;
+  font-weight: 700;
   line-break: anywhere;
   margin: auto;
 }
 
-.name,
-.description {
-  text-align: center;
-  line-height: 0.9;
+.name, .description {
   font-size: 1rem;
+  line-height: 0.9;
+  text-align: center;
 }
 
 .cardDown {
@@ -65,16 +64,16 @@
 }
 
 .attr {
-  max-width: 140px;
-  margin: 0 auto;
   border-radius: 4px;
+  margin: 0 auto;
+  max-width: 140px;
 }
 
 .attr p {
-  line-height: 1.2;
   font-size: 0.8rem;
+  line-height: 1.2;
 }
 
-.attr p:nth-child(2n) {
-  background: linear-gradient(45deg, rgb(0, 0, 0) 40%, rgb(20, 20, 20));
+.attr p:nth-child( 2n ) {
+  background: linear-gradient(45deg, black(0, 0, 0) 40%, rgb(20, 20, 20));
 }

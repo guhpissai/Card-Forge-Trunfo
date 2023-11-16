@@ -1,75 +1,70 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap') ;
 
 * {
   box-sizing: border-box;
 }
 
 body {
-  margin: 0px;
-  padding-top: 1rem;
-  --font: "Roboto", sans-serif;
-  background: url("../images/background.jpg") center no-repeat;
-  overflow: hidden;
+  background: url('../images/background.jpg') center no-repeat;
   background-size: cover;
+  margin: 0;
   min-height: 120vh;
+  overflow: hidden;
+  padding-top: 1rem;
+
+  --font: 'Roboto' , sans-serif;
 }
 
-h1,
-h2,
-h3,
-h4,
-p {
-  margin: 0px;
-  font-family: var(--font);
+h1, h2, h3, h4, p {
   color: #eee;
+  font-family: var(--font);
+  margin: 0;
 }
 
 label {
+  color: white;
   font-family: var(--font);
-  font-weight: bold;
-  font-size: 1.25rem;
-  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 700;
 }
 
-ul,
-li {
+ul, li {
   list-style: none;
-  padding: 0px;
-  margin: 0px;
+  margin: 0;
+  padding: 0;
 }
 
 header {
-  width: 100%;
   text-align: center;
+  width: 100%;
 }
 
 header h1 {
-  background: -webkit-linear-gradient(#ef5f3b, #ffdf27);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-size: 2.85rem;
-  font-weight: bold;
-  display: flex;
   align-items: center;
+  background: linear-gradient(#ef5f3b, #ffdf27);
+  background-clip: text;
+  display: flex;
+  font-size: 2.85rem;
+  font-weight: 700;
   justify-content: center;
+  -webkit-text-fill-color: transparent;
   text-transform: uppercase;
 }
 
-header h1::before {
-  content: "";
+header h1:before {
+  background: url('../images/Group\ 2.svg');
+  content: '';
+  display: inline-block;
+  height: 49px;
   margin-right: 1rem;
   width: 32px;
-  height: 49px;
-  display: inline-block;
-  background: url("../images/Group\ 2.svg");
 }
 
 .container {
-  max-width: 80rem;
   margin: 0 auto;
-  padding: 0 1rem;
   margin-top: 2rem;
+  max-width: 80rem;
+  padding: 0 1rem;
 }
 
 .container main {
@@ -78,32 +73,31 @@ header h1::before {
 }
 
 .deck-container {
-  margin: 2rem auto;
-  min-height: 25rem;
-  min-height: 25rem;
   background: rgba(0, 0, 0, 0.5);
   border-radius: 1rem;
+  margin: 2rem auto;
+  min-height: 25rem;
 }
 
 .filter-container {
   display: flex;
+  gap: 1rem;
   justify-content: center;
+  max-height: 66px;
+  max-width: 50%;
   padding-left: 1rem;
   padding-top: 1rem;
-  max-width: 50%;
-  max-height: 66px;
-  gap: 1rem;
 }
 
 .deck {
   display: flex;
   flex-wrap: wrap;
-  margin: 0 1rem;
-  padding-bottom: 1rem;
   gap: 20px;
-  min-height: 21.5rem;
+  margin: 0 1rem;
   max-height: 20rem;
+  min-height: 21.5rem;
   overflow-y: scroll;
+  padding-bottom: 1rem;
 }
 
 .deck::-webkit-scrollbar {
@@ -116,20 +110,20 @@ header h1::before {
 }
 
 .deck::-webkit-scrollbar-track {
-  background: #00000000;
+  background: #0000;
 }
 
 button {
-  padding: 10px 10px;
-  width: 8rem;
-  margin-top: 0.5rem;
   align-self: center;
-  color: white;
   background: #ef5f3b;
   border: none;
-  cursor: pointer;
-  font-weight: bold;
   border-radius: 4px;
+  color: white;
+  cursor: pointer;
+  font-weight: 700;
+  margin-top: 0.5rem;
+  padding: 10px;
+  width: 8rem;
 }
 
 button:disabled {
@@ -138,38 +132,25 @@ button:disabled {
 }
 
 select {
-  margin: 0;
-}
-
-select {
+  background: #eee;
   border: 1px solid #eee;
+  border-radius: 4px;
+  margin: 0;
   max-width: 20rem;
   padding: 0.45rem 2rem 0.45rem 0.5rem;
-  background: #eee;
-  border-radius: 4px;
   transition: 0.3s;
 }
 
-select:hover,
-select:focus {
-  outline: none;
-  border-color: rgb(255, 232, 55);
-  background: white;
-  box-shadow: 0 0 0 3px rgb(202, 69, 29);
-  background: white;
-}
-
-input,
-select,
-textarea {
-  margin-top: 0.2rem;
+input, select, textarea {
   margin-bottom: 0.5rem;
-}
-
-select {
+  margin-top: 0.2rem;
   min-width: 8rem;
 }
 
-label {
-  font-size: 1rem;
+select:hover, select:focus {
+  background: white;
+  border-color: rgb(255, 232, 55);
+  box-shadow: 0 0 0 3px rgb(202, 69, 29);
+  outline: none;
 }
+
