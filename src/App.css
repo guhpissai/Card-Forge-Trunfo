@@ -6,12 +6,12 @@
 
 body {
   margin: 0px;
-  padding-top: 2rem;
+  padding-top: 1rem;
   --font: "Roboto", sans-serif;
   background: url("../images/background.jpg") center no-repeat;
-  /* overflow: hidden; */
+  overflow: hidden;
   background-size: cover;
-  min-height: 140vh;
+  min-height: 120vh;
 }
 
 h1,
@@ -78,8 +78,9 @@ header h1::before {
 }
 
 .deck-container {
-  margin: 4rem auto;
-  min-height: 18rem;
+  margin: 2rem auto;
+  min-height: 25rem;
+  min-height: 25rem;
   background: rgba(0, 0, 0, 0.5);
   border-radius: 1rem;
 }
@@ -87,25 +88,41 @@ header h1::before {
 .filter-container {
   display: flex;
   justify-content: center;
-  margin-bottom: 1rem;
-}
-
-.deck-length {
-  padding: 1rem;
+  padding-left: 1rem;
+  padding-top: 1rem;
+  max-width: 50%;
+  max-height: 66px;
+  gap: 1rem;
 }
 
 .deck {
   display: flex;
   flex-wrap: wrap;
-  padding: 0 1rem;
+  margin: 0 1rem;
   padding-bottom: 1rem;
-  gap: 10px;
+  gap: 20px;
+  min-height: 21.5rem;
+  max-height: 20rem;
+  overflow-y: scroll;
+}
+
+.deck::-webkit-scrollbar {
+  width: 10px;
+}
+
+.deck::-webkit-scrollbar-thumb {
+  background: #ef5f3b;
+  border-radius: 8px;
+}
+
+.deck::-webkit-scrollbar-track {
+  background: #00000000;
 }
 
 button {
   padding: 10px 10px;
-  width: 10rem;
-  margin-top: 1rem;
+  width: 8rem;
+  margin-top: 0.5rem;
   align-self: center;
   color: white;
   background: #ef5f3b;
@@ -126,8 +143,6 @@ select {
 
 select {
   border: 1px solid #eee;
-  margin-top: 1rem;
-  margin-left: 1rem;
   max-width: 20rem;
   padding: 0.45rem 2rem 0.45rem 0.5rem;
   background: #eee;
@@ -142,4 +157,19 @@ select:focus {
   background: white;
   box-shadow: 0 0 0 3px rgb(202, 69, 29);
   background: white;
+}
+
+input,
+select,
+textarea {
+  margin-top: 0.2rem;
+  margin-bottom: 0.5rem;
+}
+
+select {
+  min-width: 8rem;
+}
+
+label {
+  font-size: 1rem;
 }

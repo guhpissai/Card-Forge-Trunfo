@@ -1,13 +1,14 @@
-.input {
+.input,
+select {
   display: flex;
   flex-direction: column;
-  margin-top: 1rem;
+  width: 100%;
 }
 
 .input input {
   border: 1px solid #eee;
-  max-width: 20rem;
-  padding: 0.5rem 0;
+  width: 100%;
+  padding: 0.5rem;
   background: #eee;
   border-radius: 4px;
   transition: 0.3s;
@@ -20,4 +21,14 @@
   background: white;
   box-shadow: 0 0 0 3px rgb(202, 69, 29);
   background: white;
+}
+
+.atr {
+  max-width: 4rem;
+}
+
+.input label {
+  font-size: 1rem;
+  align-self: flex-start;
+  align-items: flex-start;
 }

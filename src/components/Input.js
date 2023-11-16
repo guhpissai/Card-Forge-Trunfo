@@ -6,7 +6,7 @@ export default class Input extends Component {
     const { ...props } = this.props;
 
     return (
-      <div className={ styles.input }>
+      <div className={ `${styles.input} ${props.atr && styles.atr}` }>
         <label htmlFor={ props.id }>{!props.label && props.id}</label>
         <input
           { ...props }

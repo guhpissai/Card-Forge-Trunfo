@@ -3,7 +3,7 @@ import Form from './components/Form';
 import Card from './components/Card';
 import './App.css';
 import MinCard from './components/MinCard';
-import Input from './components/Input';
+import Filter from './components/Filter';
 
 class App extends React.Component {
   state = {
@@ -15,7 +15,7 @@ class App extends React.Component {
     cardAttr2: '',
     cardAttr3: '',
     cardImage: '',
-    cardRare: '',
+    cardRare: 'normal',
     nextCardId: 1,
     cards: [],
     filteredCards: [],
@@ -66,10 +66,14 @@ class App extends React.Component {
         cardAttr1: 0,
         cardAttr2: 0,
         cardAttr3: 0,
-        cardRare: '',
+        cardRare: 'normal',
+        cardTrunfo: false,
         buttonDisabled: true,
       }),
-      this.hasTrunfo,
+      () => {
+        this.hasTrunfo();
+        this.filterCards(); // Mova a chamada da função filterCards para o callback do setState
+      },
     );
   };
 
@@ -119,11 +123,16 @@ class App extends React.Component {
   };
 
   filterCards = () => {
-    const { cards, cardFilterName, cardRareFilter } = this.state;
+    const { cards, cardFilterName, cardRareFilter, cardTrunfoFilter } = this.state;
+
     const filteredCards = cards.filter(
       (card) => card.cardName.toLowerCase().includes(cardFilterName.toLowerCase())
-        && (!cardRareFilter || card.cardRare === cardRareFilter),
+        && (!cardRareFilter
+          || cardRareFilter === 'todas'
+          || card.cardRare === cardRareFilter)
+        && (!cardTrunfoFilter || card.cardTrunfo === cardTrunfoFilter),
     );
+
     this.setState({ filteredCards });
   };
 
@@ -158,6 +167,7 @@ class App extends React.Component {
       filteredCards,
       cardFilterName,
       cardRareFilter,
+      cardTrunfoFilter,
     } = this.state;
 
     return (
@@ -185,57 +195,23 @@ class App extends React.Component {
               cardRare={ cardRare }
             />
           </main>
-          {this.onSaveButtonClick && (
-            <div className="deck-container">
-              <div className="filter-container">
-                <Input
-                  type="text"
-                  onChange={ this.onInputChange }
-                  value={ this.cardFilterName }
-                  data-testid="name-filter"
-                  id="Nome da Carta"
-                  name="cardFilterName"
-                  label="false"
-                />
-                <label htmlFor="cardRareFilter">
-                  <select
-                    onChange={ this.onInputChange }
-                    value={ this.cardRareFilter }
-                    data-testid="trunfo-filter"
-                    id="cardRareFilter"
-                    name="cardRareFilter"
-                  >
-                    <option value="" disabled hidden>
-                      Raridade
-                    </option>
-                    <option>normal</option>
-                    <option>raro</option>
-                    <option>muito raro</option>
-                  </select>
-                </label>
-                {/* <label htmlFor="trunfo">
-                  Super Trunfo
-                  <input
-                    onChange={ this.onInputChange }
-                    checked={ this.cardTrunfoFilter }
-                    type="checkbox"
-                    data-testid="trunfo-input"
-                    id="trunfoFilter"
-                    name="cardTrunfoFilter"
-                  />
-                </label> */}
-                <p className="deck-length">
-                  {cards.length}
-                  /8
-                </p>
-              </div>
+          <div className="deck-container">
+            <div className="filter-container">
+              <Filter
+                onInputChange={ this.onInputChange }
+                cardFilterName={ cardFilterName }
+                cardTrunfoFilter={ cardTrunfoFilter }
+                cards={ cards }
+              />
+            </div>
+            <div className="deck-scroll">
               <ul className="deck">
-                {cardFilterName || cardRareFilter
+                {cardFilterName || cardRareFilter || cardTrunfoFilter
                   ? filteredCards.map((card) => this.renderCard(card))
                   : cards.map((card) => this.renderCard(card))}
               </ul>
             </div>
-          )}
+          </div>
         </div>
       </div>
     );

@@ -50,6 +50,7 @@ class Form extends React.Component {
             data-testid="attr1-input"
             id="Altura"
             name="cardAttr1"
+            atr
           />
           <Input
             type="number"
@@ -58,22 +59,16 @@ class Form extends React.Component {
             data-testid="attr2-input"
             id="Inteligencia"
             name="cardAttr2"
+            atr
           />
           <Input
             type="number"
             onChange={ onInputChange }
             value={ cardAttr3 }
             data-testid="attr3-input"
-            id="strength"
+            id="Força"
             name="cardAttr3"
-          />
-          <Input
-            type="text"
-            onChange={ onInputChange }
-            value={ cardImage }
-            data-testid="image-input"
-            id="image"
-            name="cardImage"
+            atr
           />
           <label htmlFor="rarity">
             Raridade
@@ -90,7 +85,7 @@ class Form extends React.Component {
             </select>
           </label>
           {hasTrunfo === true ? (
-            <p>Você já tem um Super Trunfo em seu baralho</p>
+            <p className={ styles.info }>Você já tem um Super Trunfo em seu baralho</p>
           ) : (
             <label htmlFor="trunfo">
               Super Trunfo
@@ -104,6 +99,14 @@ class Form extends React.Component {
               />
             </label>
           )}
+          <Input
+            type="text"
+            onChange={ onInputChange }
+            value={ cardImage }
+            data-testid="image-input"
+            id="image"
+            name="cardImage"
+          />
           <button
             type="button"
             data-testid="save-button"

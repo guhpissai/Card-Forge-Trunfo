@@ -62,7 +62,6 @@ class MinCard extends React.Component {
           onClick={ () => handleRemoveCard(id) }
         >
           Remove
-
         </button>
       </section>
     );

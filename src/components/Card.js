@@ -25,7 +25,7 @@ class Card extends React.Component {
           } ` }
         >
           {cardImage ? (
-            <img src={ cardImage } alt={ cardImage } data-testid="image-card" />
+            <img src={ cardImage } alt={ cardName } data-testid="image-card" />
           ) : (
             <div className={ styles.emptyImage } />
           )}
@@ -55,7 +55,11 @@ class Card extends React.Component {
                 {cardAttr3}
               </p>
               <p data-testid="rare-card">{cardRare}</p>
-              {cardTrunfo && <p data-testid="trunfo-card">Super Trunfo</p>}
+              {cardTrunfo && (
+                <p data-testid="trunfo-card" className={ styles.trunfo }>
+                  Super Trunfo
+                </p>
+              )}
             </div>
           </div>
         </div>

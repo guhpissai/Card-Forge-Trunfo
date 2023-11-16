@@ -48,7 +48,9 @@
 }
 
 .cardHeader {
-  margin: 8px 0;
+  margin: 0.5rem 0;
+  padding: 0 1rem;
+  min-height: 20px;
 }
 
 .card p {
@@ -58,8 +60,20 @@
   margin: auto;
 }
 
+.card .trunfo {
+  color: #f48734;
+}
+
 .name {
   font-size: 1.25rem;
+}
+
+.description {
+  font-size: 0.8rem;
+}
+
+.card .description {
+  color: #eee;
 }
 
 .name,
@@ -83,5 +97,9 @@
 }
 
 .attr p:nth-child(2n) {
-  background: linear-gradient(45deg, rgb(0, 0, 0) 40%, rgb(20, 20, 20));
+  background: linear-gradient(45deg, rgb(18, 18, 18) 10%, rgb(52, 52, 52));
+}
+
+input {
+  font-family: var(--font);
 }
