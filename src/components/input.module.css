@@ -1,7 +1,7 @@
-.input, select {
+.input,
+select {
   display: flex;
   flex-wrap: wrap;
-  max-width: 300px;
   width: 100%;
 }
 
@@ -9,13 +9,13 @@
   background: #eee;
   border: 1px solid #eee;
   border-radius: 4px;
-  max-width: 300px;
   padding: 0.5rem;
   transition: 0.3s;
   width: 100%;
 }
 
-.input input:hover, .input input:focus {
+.input input:hover,
+.input input:focus {
   background: white;
   border-color: rgb(255, 232, 55);
   box-shadow: 0 0 0 3px rgb(202, 69, 29);
@@ -25,9 +25,15 @@
 .atr {
   display: flex;
   justify-content: space-between;
-  max-width: 8rem;
+  max-width: 25%;
+  margin-right: 1rem;
 }
 
 .input label {
   font-size: 1rem;
+}
+
+.filter {
+  width: 50%;
+  min-width: 50%;
 }

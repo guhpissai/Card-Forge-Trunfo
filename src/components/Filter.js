@@ -23,6 +23,7 @@ export default class Filter extends Component {
           id="Nome da Carta"
           name="cardFilterName"
           label="false"
+          filter="true"
         />
         <label htmlFor="cardRareFilter">
           <select
