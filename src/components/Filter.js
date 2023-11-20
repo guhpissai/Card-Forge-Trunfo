@@ -33,7 +33,7 @@ export default class Filter extends Component {
             disabled={ cardTrunfoFilter }
             name="cardRareFilter"
           >
-            <option value="" disabled hidden>
+            <option value="" hidden>
               Raridade
             </option>
             <option>todas</option>
@@ -42,20 +42,22 @@ export default class Filter extends Component {
             <option>muito raro</option>
           </select>
         </label>
-        <label htmlFor="trunfoFilter">
+        <label className="checkbox-label" htmlFor="trunfoFilter">
           Super Trunfo
           <input
             onChange={ onInputChange }
             checked={ cardTrunfoFilter }
             type="checkbox"
+            className="checkbox"
             data-testid="trunfo-filter"
             id="trunfoFilter"
             name="cardTrunfoFilter"
           />
+          <span className="slider" />
         </label>
         <p className="deck-length">
           {cards.length}
-          /8
+          /32
         </p>
       </>
     );
@@ -67,13 +69,15 @@ Filter.propTypes = {
   cardFilterName: PropTypes.string.isRequired,
   cardTrunfoFilter: PropTypes.bool.isRequired,
   cardRareFilter: PropTypes.string.isRequired,
-  cards: PropTypes.arrayOf({
-    cardName: PropTypes.string.isRequired,
-    cardDescription: PropTypes.string.isRequired,
-    cardAttr1: PropTypes.string.isRequired,
-    cardAttr2: PropTypes.string.isRequired,
-    cardAttr3: PropTypes.string.isRequired,
-    cardImage: PropTypes.string.isRequired,
-    cardRare: PropTypes.string.isRequired,
-  }).isRequired,
+  cards: PropTypes.arrayOf(
+    PropTypes.shape({
+      cardName: PropTypes.string.isRequired,
+      cardDescription: PropTypes.string.isRequired,
+      cardAttr1: PropTypes.string.isRequired,
+      cardAttr2: PropTypes.string.isRequired,
+      cardAttr3: PropTypes.string.isRequired,
+      cardImage: PropTypes.string.isRequired,
+      cardRare: PropTypes.string.isRequired,
+    }),
+  ).isRequired,
 };

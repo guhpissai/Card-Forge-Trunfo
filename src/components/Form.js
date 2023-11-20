@@ -50,16 +50,16 @@ class Form extends React.Component {
             data-testid="attr1-input"
             id="Altura"
             name="cardAttr1"
-            atr
+            atr="true"
           />
           <Input
             type="number"
             onChange={ onInputChange }
             value={ cardAttr2 }
             data-testid="attr2-input"
-            id="Inteligencia"
+            id="Inteligência"
             name="cardAttr2"
-            atr
+            atr="true"
           />
           <Input
             type="number"
@@ -68,7 +68,7 @@ class Form extends React.Component {
             data-testid="attr3-input"
             id="Força"
             name="cardAttr3"
-            atr
+            atr="true"
           />
           <label htmlFor="rarity">
             Raridade
@@ -87,12 +87,13 @@ class Form extends React.Component {
           {hasTrunfo === true ? (
             <p className={ styles.info }>Você já tem um Super Trunfo em seu baralho</p>
           ) : (
-            <label htmlFor="trunfo">
+            <label className="checkbox-label" htmlFor="trunfo">
               Super Trunfo
               <input
                 onChange={ onInputChange }
                 checked={ cardTrunfo }
                 type="checkbox"
+                className="checkbox"
                 data-testid="trunfo-input"
                 id="trunfo"
                 name="cardTrunfo"
@@ -104,7 +105,7 @@ class Form extends React.Component {
             onChange={ onInputChange }
             value={ cardImage }
             data-testid="image-input"
-            id="image"
+            id="Imagem"
             name="cardImage"
           />
           <button

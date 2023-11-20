@@ -43,7 +43,7 @@ class MinCard extends React.Component {
                 {cardAttr1}
               </p>
               <p data-testid="attr2-card">
-                Inteligencia:
+                Inteligência:
                 {' '}
                 {cardAttr2}
               </p>
@@ -53,7 +53,11 @@ class MinCard extends React.Component {
                 {cardAttr3}
               </p>
               <p data-testid="rare-card">{cardRare}</p>
-              {cardTrunfo && <p data-testid="trunfo-card">Super Trunfo</p>}
+              {cardTrunfo && (
+                <p data-testid="trunfo-card" className={ styles.trunfo }>
+                  Super Trunfo
+                </p>
+              )}
             </div>
           </div>
         </div>

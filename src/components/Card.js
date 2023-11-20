@@ -45,7 +45,7 @@ class Card extends React.Component {
                 {cardAttr1}
               </p>
               <p data-testid="attr2-card">
-                Inteligencia:
+                Inteligência:
                 {' '}
                 {cardAttr2}
               </p>

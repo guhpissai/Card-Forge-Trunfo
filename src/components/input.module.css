@@ -1,6 +1,7 @@
 .input, select {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  max-width: 300px;
   width: 100%;
 }
 
@@ -8,6 +9,7 @@
   background: #eee;
   border: 1px solid #eee;
   border-radius: 4px;
+  max-width: 300px;
   padding: 0.5rem;
   transition: 0.3s;
   width: 100%;
@@ -21,11 +23,11 @@
 }
 
 .atr {
-  max-width: 4rem;
+  display: flex;
+  justify-content: space-between;
+  max-width: 8rem;
 }
 
 .input label {
-  align-items: flex-start;
-  align-self: flex-start;
   font-size: 1rem;
 }

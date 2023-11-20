@@ -8,8 +8,9 @@ body {
   background: url('../images/background.jpg') center no-repeat;
   background-size: cover;
   margin: 0;
-  min-height: 120vh;
-  overflow: hidden;
+  min-height: 110vh;
+
+  /* overflow: hidden; */
   padding-top: 1rem;
 
   --font: 'Roboto' , sans-serif;
@@ -82,11 +83,14 @@ header h1:before {
 .filter-container {
   display: flex;
   gap: 1rem;
-  justify-content: center;
+  justify-content: flex-start;
   max-height: 66px;
-  max-width: 50%;
-  padding-left: 1rem;
-  padding-top: 1rem;
+  max-width: 100%;
+  padding: 1rem;
+}
+
+.deck-length {
+  margin-left: auto;
 }
 
 .deck {
@@ -137,6 +141,7 @@ select {
   border-radius: 4px;
   margin: 0;
   max-width: 20rem;
+  min-width: 8rem;
   padding: 0.45rem 2rem 0.45rem 0.5rem;
   transition: 0.3s;
 }
@@ -144,7 +149,6 @@ select {
 input, select, textarea {
   margin-bottom: 0.5rem;
   margin-top: 0.2rem;
-  min-width: 8rem;
 }
 
 select:hover, select:focus {
@@ -154,3 +158,44 @@ select:hover, select:focus {
   outline: none;
 }
 
+.checkbox {
+  appearance: none;
+  background: #eee;
+  border-radius: 20px;
+  height: 1rem;
+  outline: none;
+  position: relative;
+  transition: 0.5s;
+  width: 2rem;
+}
+
+.checkbox:checked {
+  background: rgb(202, 69, 29);
+}
+
+.checkbox:before {
+  background: white;
+  border-radius: 20px;
+  content: '';
+  height: 1rem;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transform: scale(1.1);
+  transition: 0.5s;
+  width: 1rem;
+}
+
+.checkbox:checked:before {
+  left: 1rem;
+}
+
+.checkbox-label {
+  align-items: center;
+  display: flex;
+}
+
+.checkbox-label input {
+  margin-left: 10px;
+  margin-top: 5px;
+}

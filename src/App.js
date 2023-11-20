@@ -72,7 +72,7 @@ class App extends React.Component {
       }),
       () => {
         this.hasTrunfo();
-        this.filterCards(); // Mova a chamada da função filterCards para o callback do setState
+        this.filterCards();
       },
     );
   };
@@ -82,7 +82,10 @@ class App extends React.Component {
       (prevState) => ({
         cards: prevState.cards.filter((card) => card.id !== cardId),
       }),
-      this.hasTrunfo,
+      () => {
+        this.hasTrunfo();
+        this.filterCards();
+      },
     );
   };
 
@@ -201,6 +204,7 @@ class App extends React.Component {
                 onInputChange={ this.onInputChange }
                 cardFilterName={ cardFilterName }
                 cardTrunfoFilter={ cardTrunfoFilter }
+                cardRareFilter={ cardRareFilter }
                 cards={ cards }
               />
             </div>

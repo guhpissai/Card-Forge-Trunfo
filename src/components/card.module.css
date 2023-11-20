@@ -29,7 +29,7 @@
   border: 0.5rem;
   border-image: linear-gradient(to right, rgb(188, 81, 4), rgb(252, 139, 0)) 1;
   border-style: solid;
-  box-shadow: 0 0 4px 2px #d63f03, 0 0 0 1px black;
+  box-shadow: 0 0 4px 2px #d63f03 , 0 0 0 1px black;
 }
 
 .card img {
@@ -40,7 +40,7 @@
 }
 
 .emptyImage {
-  background: url("../../images/empty-img.png") center center;
+  background: url('../../images/empty-img.png') center center;
   background-size: cover;
   grid-area: 1/1;
   height: 200px;
@@ -64,18 +64,18 @@
   color: #f48734;
 }
 
-.name {
+.name, .description {
+  font-size: 1rem;
+  line-height: 1;
+  text-align: center;
+}
+
+.card .name {
   font-size: 1.25rem;
 }
 
 .description {
   font-size: 0.8rem;
-}
-
-.name,
-.description {
-  line-height: 1;
-  text-align: center;
 }
 
 .card .description {
@@ -96,7 +96,7 @@
   line-height: 1.4;
 }
 
-.attr p:nth-child(2n) {
+.attr p:nth-child( 2n ) {
   background: linear-gradient(45deg, rgb(18, 18, 18) 10%, rgb(52, 52, 52));
 }
 
